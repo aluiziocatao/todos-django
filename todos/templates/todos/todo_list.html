@@ -28,14 +28,15 @@
                     <td>{{ todo.finished_at|default:"-" }}</td>
                     <td>
                         <a 
-                            href="" 
-                            class="btn btn-primary btn-sm"
+                            href="{% url 'todo_complete' pk=todo.pk %}" 
+                            class="btn btn-primary btn-sm {% if todo.finished_at %} disable {% endif %}"
+                            
                         >
                             Concluir
                         </a>
                         <a
                             href="{% url 'todo_update' pk=todo.pk %}" 
-                            class="btn btn-secondary btn-sm"
+                            class="btn btn-secondary btn-sm {% if todo.finished_at %} disable {% endif %}"
                         >
                             Editar
                         </a>
